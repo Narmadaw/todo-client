@@ -10,7 +10,7 @@ const Home =() =>{
   //fetch todo list
   const getTodoList = async () =>{
     try{
-        const response = await axios.get('http://localhost:8080/todo');
+        const response = await axios.get('https://todobynarmada-8b77155fb9bb.herokuapp.com/todo');
         setTodoList(response.data);
     }catch(error){
         console.log(error);
@@ -23,7 +23,7 @@ useEffect(() =>{
 //create new task
 const postNewTask = async(newTask) =>{
     try{
-        const response = await axios.post('http://localhost:8080/todo', newTask);
+        const response = await axios.post('https://todobynarmada-8b77155fb9bb.herokuapp.com/todo/get', newTask);
         if(response.status === 201)
         {
             getTodoList();
@@ -40,7 +40,7 @@ const handleUpdateOrDelete = async(id, method) =>{
     let response;
     console.log(method)
     try{
-        response = await axios[method](`http://localhost:8080/todo/${id}`);
+        response = await axios[method](`https://todobynarmada-8b77155fb9bb.herokuapp.com/todo/create/${id}`);
         if(response.status === 201){
             getTodoList();
         }else{
