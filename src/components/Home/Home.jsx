@@ -23,7 +23,7 @@ useEffect(() =>{
 //create new task
 const postNewTask = async(newTask) =>{
     try{
-        const response = await axios.post('https://todobynarmada-8b77155fb9bb.herokuapp.com/todo/get', newTask);
+        const response = await axios.post('https://todobynarmada-8b77155fb9bb.herokuapp.com/todo', newTask);
         if(response.status === 201)
         {
             getTodoList();
@@ -40,7 +40,7 @@ const handleUpdateOrDelete = async(id, method) =>{
     let response;
     console.log(method)
     try{
-        response = await axios[method](`https://todobynarmada-8b77155fb9bb.herokuapp.com/todo/create/${id}`);
+        response = await axios[method](`https://todobynarmada-8b77155fb9bb.herokuapp.com/todo/${id}`);
         if(response.status === 201){
             getTodoList();
         }else{
